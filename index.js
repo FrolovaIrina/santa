@@ -4,45 +4,45 @@ function cristmasCountDown() {
 	const diff = cristmasDate - now;
 	console.log(diff);
 
-	const msInSecond = 1000; //перевод в секунды
-	const msInMinute = 60 * 1000; //перевод в минуты
-	const msInHour = 60 * 60 * 1000; //перевод в часы
-	const msInDay = 24 * 60 * 60 * 1000; //перевод в дни
+	const msInSecond = 1000; 
+	const msInMinute = 60 * 1000; 
+	const msInHour = 60 * 60 * 1000;
+	const msInDay = 24 * 60 * 60 * 1000; 
 
-	const displayDays = Math.floor(diff / msInDay); //матем.округляем до целого дня
-	document.querySelector('.days').textContent = displayDays; //записываем в табличку 
+	const displayDays = Math.floor(diff / msInDay); 
+	document.querySelector('.days').textContent = displayDays; 
 	
 
 	const displayHour = Math.floor((diff % msInDay) / msInHour);
-	document.querySelector('.hours').textContent = displayHour; //записываем в табличку 
+	document.querySelector('.hours').textContent = displayHour; 
 	
 
 	const displayMinute = Math.floor((diff % msInHour) / msInMinute);
-	document.querySelector('.minutes').textContent = displayMinute; //записываем в табличку 
+	document.querySelector('.minutes').textContent = displayMinute; 
 	
 
 	const displaySecond = Math.floor((diff % msInMinute) / msInSecond);
-	document.querySelector('.seconds').textContent = displaySecond; //записываем в табличку, но нет динамики
+	document.querySelector('.seconds').textContent = displaySecond; 
 
 	if (diff <= 0) {
-		document.querySelector('.days').textContent = 0; // убираем глюк
-		document.querySelector('.hours').textContent = 0; //убираем глюк
-		document.querySelector('.minutes').textContent = 0; //убираем глюк
-		document.querySelector('.seconds').textContent = 0; //убмраем глюк
-		clearInterval(timerID); //останавливаем таймер по переменной, иначе не остановится
-		merryCristmas(); //вызов смены заголовк
+		document.querySelector('.days').textContent = 0; 
+		document.querySelector('.hours').textContent = 0; 
+		document.querySelector('.minutes').textContent = 0; 
+		document.querySelector('.seconds').textContent = 0; 
+		clearInterval(timerID); 
+		merryCristmas();
 	}
 
 }
-let timerID = setInterval(cristmasCountDown, 1000);//считаем каждую секунду
+let timerID = setInterval(cristmasCountDown, 1000);
 
-function merryCristmas() { //функция смены заголовка
+function merryCristmas() { 
 	const heading = document.querySelector('h1');
 	heading.textContent = "MERRY CHRISTMAS!!! HO-HO-HO";
-	heading.classList.add("red"); //добавляем стиль из JS
+	heading.classList.add("red"); 
 }
 
-const button = document.querySelector('#myButton'); //работаем с кнопкой, подслушка
+const button = document.querySelector('#myButton'); 
 button.addEventListener('click', function () {
 	document.querySelector('#myAudio').play();
 })
